@@ -40,7 +40,7 @@ const courses: Course[] = [
   {
     id: "4",
     title: "Kültür ve Sanat İçin Kaynak Geliştirme",
-    instructor: "Gizem Gezenaoğlu",
+    instructor: "Gizem Gezenoğlu",
     category: "visual-arts",
     price: 90,
   },
