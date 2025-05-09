@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, EyeOff } from "lucide-react"
+import { signIn } from "next-auth/react"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -34,7 +35,18 @@ export default function LoginPage() {
           <CardTitle className="text-2xl font-bold text-primary-foreground">Giriş Yap</CardTitle>
           <p className="text-sm text-text-secondary">Hesabınıza giriş yaparak eğitimlerinize erişebilirsiniz</p>
         </CardHeader>
+
         <CardContent>
+          {/* Google ile giriş */}
+          <Button
+            onClick={() => signIn("google")}
+            className="w-full mb-6 bg-white text-black border hover:bg-gray-100"
+            variant="outline"
+          >
+            Google ile Giriş Yap
+          </Button>
+
+          {/* E-posta ile giriş alanı (şu an aktif değil ama ileride desteklenebilir) */}
           <form className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email">E-posta</Label>
@@ -80,6 +92,7 @@ export default function LoginPage() {
               Giriş Yap
             </Button>
           </form>
+
           <div className="mt-6 text-center">
             <p className="text-sm text-text-secondary">
               Henüz hesabınız yok mu?{" "}
